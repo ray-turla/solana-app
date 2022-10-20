@@ -19,6 +19,17 @@ const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
 console.log("Public Key of the generated keypair", publicKey);
 
+const processUserInput = () => {
+  console.log("Processing user input");
+  const args = process.argv;
+  if (!(args.length >= 1 && args.length <= 3)) {
+    throw new Error("Can only can only accept 1 value");
+  }
+  const input = args[2];
+  console.log("User input:", input);
+  return input;
+};
+
 // Get the wallet balance from a given private key
 const getWalletBalance = async () => {
   try {
@@ -50,7 +61,7 @@ const airDropSol = async () => {
     // Request airdrop of 2 SOL to the wallet
     console.log("Airdropping some SOL to selected user wallet!");
     const fromAirDropSignature = await connection.requestAirdrop(
-      new PublicKey(myWallet.publicKey),
+      new PublicKey(processUserInput),
       2 * LAMPORTS_PER_SOL
     );
     await connection.confirmTransaction(fromAirDropSignature);
