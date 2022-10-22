@@ -62,8 +62,8 @@ const transferSol = async () => {
   // Generate another Keypair (account we'll be sending to)
   const to = Keypair.generate();
   await logFromToBalance(from, to);
-  // Aidrop 2 SOL to Sender wallet
-  const fromAirDropSignature = await airDropSol(from, 2);
+  // Aidrop SOL to Sender wallet
+  const fromAirDropSignature = await airDropSol(from, 1);
   // const fromAirDropSignature = await connection.requestAirdrop(
   //   new PublicKey(from.publicKey),
   //   2 * LAMPORTS_PER_SOL
