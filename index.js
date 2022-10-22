@@ -56,10 +56,9 @@ const getWalletBalance = async (wallet) => {
   }
 };
 
-const airDropSol = async (wallet) => {
+const airDropSol = async (wallet, amount) => {
   try {
     console.log("START Airdrop");
-    await getWalletBalance(wallet.secretKey);
     // Connect to the Devnet and make a wallet from privateKey
     // const myWallet = await Keypair.fromSecretKey(privateKey);
 
@@ -70,10 +69,10 @@ const airDropSol = async (wallet) => {
 
       // Airdrop to selected user
       // new PublicKey(processUserInput()),
-      2 * LAMPORTS_PER_SOL
+      lamport(amount)
     );
+    console.log(`Airdropped ${sol(lamport(amount))} SOL to Wallet`);
     await connection.confirmTransaction(fromAirDropSignature);
-    await getWalletBalance(privateKey);
     console.log("END Airdrop");
     return fromAirDropSignature;
   } catch (err) {
