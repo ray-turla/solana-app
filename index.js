@@ -42,15 +42,14 @@ const processUserInput = () => {
 // Get the wallet balance from a given private key
 const getWalletBalance = async (wallet) => {
   try {
-    // Make a wallet (keypair) from privateKey and get its balance
+    // Make a wallet (keypair) from privateKey and get its balance in lamports
     const walletBalance = await connection.getBalance(
       new PublicKey(wallet.publicKey)
     );
-    const solBalance = parseInt(walletBalance) / LAMPORTS_PER_SOL;
     // console.log(
     //   `Wallet balance: ${} SOL`
     // );
-    return solBalance;
+    return sol(walletBalance);
   } catch (err) {
     console.log(err);
   }
