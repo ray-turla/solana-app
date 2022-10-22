@@ -48,7 +48,6 @@ const processUserInput = () => {
 
 const transferSol = async () => {
   console.log("START Transaction");
-  const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
   // Get Keypair from Secret Key
 
