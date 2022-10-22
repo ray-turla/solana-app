@@ -11,6 +11,9 @@ const {
   sendAndConfirmTransaction,
 } = require("@solana/web3.js");
 
+// SET CALCULATIONS
+const sol = (lamport) => parseInt(lamport) / LAMPORTS_PER_SOL; // READ SOL
+const lamport = (amount) => amount * LAMPORTS_PER_SOL; // SEND SOL
 // Connect to devnet
 const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
