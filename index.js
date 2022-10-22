@@ -19,10 +19,9 @@ const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
 // Create a new keypair
 const newPair = Keypair.generate();
-
 // Extract the public and private key from the keypair
-const publicKey = new PublicKey(newPair._keypair.publicKey).toString();
-const privateKey = newPair._keypair.secretKey;
+const publicKey = new PublicKey(newPair.publicKey).toString();
+const privateKey = newPair.secretKey;
 
 // Connect to the Devnet
 
