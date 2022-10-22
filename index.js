@@ -87,7 +87,8 @@ const transferSol = async () => {
     SystemProgram.transfer({
       fromPubkey: from.publicKey,
       toPubkey: to.publicKey,
-      lamports: lamport(1),
+      // transfers half from wallet balance
+      lamports: lamport((await getWalletBalance(from)) * 0.5),
     })
   );
 
