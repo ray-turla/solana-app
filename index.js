@@ -69,6 +69,11 @@ const airDropSol = async () => {
   }
 };
 
+async function logFromToBalance(fromSK, toSK) {
+  console.log("From WALLET Balance:", await getWalletBalance(fromSK));
+  console.log("To WALLET Balance:", await getWalletBalance(toSK));
+}
+
 // Show the wallet balance before and after airdropping SOL
 const mainFunction = async () => {
   await getWalletBalance();
