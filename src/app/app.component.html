@@ -7,7 +7,10 @@
   >
     {{ loading ? "Connecting to Wallet" : "Connect Wallet" }}
   </button>
-  <p *ngIf="provider && walletKey">Connected Account</p>
+  <ng-container *ngIf="provider && walletKey">
+    <p>Connected Account</p>
+    <p>Your wallet address: {{ walletKey }}</p>
+  </ng-container>
   <p *ngIf="!provider">
     No provider found. Install {{ " " }}
     <a href="https://phantom.app">Phantom Browser Extension</a>
