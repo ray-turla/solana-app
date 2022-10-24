@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   button {
     font-size: 1.25rem;
     padding: 1.5rem;
@@ -15,6 +16,21 @@
     border-radius: 5px;
     color: #3253ee;
     border: 1px solid #3253ee;
+    &.icon {
+      display: grid;
+      padding: 0.25rem;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #ff0000;
+      border: 1px solid #ff0000;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      &:hover {
+        color: white;
+        background-color: #ff0000;
+      }
+    }
     &:disabled {
       color: #6a6a6a;
       border: 1px solid #6a6a6a;

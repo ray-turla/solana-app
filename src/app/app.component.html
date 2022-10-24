@@ -12,4 +12,7 @@
     No provider found. Install {{ " " }}
     <a href="https://phantom.app">Phantom Browser Extension</a>
   </p>
+  <button class="icon" *ngIf="provider && walletKey" (click)="disconnect()">
+    <span class="material-icons">power_off</span>
+  </button>
 </section>
