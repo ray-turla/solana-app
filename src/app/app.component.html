@@ -1,0 +1,15 @@
+<section class="landing">
+  <h1 class="heading-1">Connect to Phantom Wallet!</h1>
+  <button
+    (click)="connectWallet()"
+    *ngIf="provider && !walletKey"
+    [disabled]="loading"
+  >
+    {{ loading ? "Connecting to Wallet" : "Connect Wallet" }}
+  </button>
+  <p *ngIf="provider && walletKey">Connected Account</p>
+  <p *ngIf="!provider">
+    No provider found. Install {{ " " }}
+    <a href="https://phantom.app">Phantom Browser Extension</a>
+  </p>
+</section>

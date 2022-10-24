@@ -1,0 +1,28 @@
+.landing {
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  background-color: #1e1e1e;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button {
+    font-size: 1.25rem;
+    padding: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #3253ee;
+    border: 1px solid #3253ee;
+    &:disabled {
+      color: #6a6a6a;
+      border: 1px solid #6a6a6a;
+      pointer-events: none;
+    }
+    &:hover {
+      color: white;
+      background-color: #3253ee;
+    }
+  }
+}
