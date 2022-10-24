@@ -33,8 +33,8 @@ export class AppComponent implements OnDestroy {
   async reconnect() {
     this.loading = true;
     try {
-      const publicKey = await this.provider?.connect({ onlyIfTrusted: true });
-      this.walletKey = publicKey ? publicKey.toString() : '';
+      const response = await this.provider?.connect({ onlyIfTrusted: true });
+      this.walletKey = response ? response.publicKey.toString() : '';
       this.loading = false;
     } catch (err) {}
     this.loading = false;
