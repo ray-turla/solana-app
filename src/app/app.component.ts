@@ -23,6 +23,9 @@ export class AppComponent implements OnDestroy {
     this.subscription = this.provider$.subscribe((value) => {
       this.provider = value;
       this.reconnect();
+      this.provider?.on('disconnect', () => {
+        this.walletKey = '';
+      });
     });
   }
 
@@ -38,6 +41,15 @@ export class AppComponent implements OnDestroy {
       this.loading = false;
     } catch (err) {}
     this.loading = false;
+  }
+
+  async disconnect() {
+    // const { solana } = window;
+    try {
+      await this.provider?.disconnect();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   private getProvider(): PhantomProvider | undefined {
