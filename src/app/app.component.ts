@@ -62,12 +62,14 @@ export class AppComponent implements OnDestroy {
 
   async connectWallet() {
     const { solana } = window;
+    this.loading = true;
     if (solana) {
       try {
         const response = await solana.connect();
         const publicKey = response.publicKey.toString();
         console.log('wallet account', publicKey);
         this.walletKey = publicKey;
+        this.loading = false;
       } catch (err) {
         console.log(err);
       }
